@@ -5,7 +5,7 @@
       猜你喜欢
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" alt="img">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -20,32 +20,11 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪士尼乐园',
-        desc: '上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪士尼乐园',
-        desc: '上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪士尼乐园',
-        desc: '上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-        title: '上海迪士尼乐园',
-        desc: '上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园上海迪士尼乐园'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
+
 </script>
 
 <style lang="stylus" scoped>
@@ -60,22 +39,27 @@ export default {
     overflow hidden
     display flex
     height 1.9rem
+
     .item-img
       width 1.7rem
       height 1.7rem
       padding .1rem
+
     .item-info
       flex 1
       padding .1rem
       min-width 0
+
       .item-title
         line-height .54rem
         font-size .32rem
         ellipse()
+
       .item-desc
         line-height .4rem
-        color  #ccc
+        color #ccc
         ellipse()
+
       .item-button
         line-height .44rem
         margin-top .16rem
@@ -83,6 +67,7 @@ export default {
         padding 0 .1rem
         border-radius .06rem
         color #fff
+
   .iconfont
     color red
 </style>
